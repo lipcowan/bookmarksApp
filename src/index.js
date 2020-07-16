@@ -1,10 +1,12 @@
 import $ from 'jquery';
+import 'normalize.css';
+import './index.css';
+import new from './new';
+import api from './api';
+import store from './store';
 
-function main() {
-  console.log('DOM is loaded');
-
-  const startMsg = $('<p>Webpack is working!</p>');
-  $('#root').append(startMsg);
-}
+const main = function () {
+  // add functions that need to be available upon page loading
+};
 
 $(main);

@@ -25,6 +25,12 @@ bookmarks: [
       description: 'lorem ipsum dolor',
       expanded: true
     }
-
-
 */
+
+//let error = null;
+
+
+
+export default {
+  //functions to come
+};
