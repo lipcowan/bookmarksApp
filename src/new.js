@@ -7,11 +7,17 @@ import api from './api.js';
 
 
 // function to handle new bookmark submission
+/* bookmark data going to server is 
+      "id": "8sdfbvbs65sd",
+      "title": "Google",
+      "url": "http://google.com",
+      "desc": "An indie search engine startup",
+      "rating": 4
+    This is also all the formdata()
+*/
 
 
 
 
-
-export default {
-  //add function
-};
+ //export default { ... 
+ 

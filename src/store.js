@@ -25,6 +25,9 @@ bookmarks: [
       description: 'lorem ipsum dolor',
       expanded: true
     }
+
+The store is going to contain the formdata() for each bookmark object + expanded (boolean - local only) in bookmarks array 
+the store will contain adding, error, and filter locally - referencing how the dom looks
 */
 
 //let error = null;

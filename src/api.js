@@ -5,6 +5,9 @@ export default {getItems, createItem, updateItem, deleteItem};
 const userName = "lip"
 const BASE_URL = `https://thinkful-list-api.herokuapp.com/${userName}/bookmarks`;
 
+
+// pulled from the shopping-list api exercise, should be mostly the same
+
 function apiCall(url, method = "GET", body) {
   return fetch(url, { method, body, headers: body ? {'Content-Type': 'application/json'} : undefined})
     .then(res => {
