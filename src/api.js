@@ -1,6 +1,6 @@
 // server will need to hold array of bookmark objects 
 
-export default {getItems, createItem, updateItem, deleteItem};
+export default {getBookmarks, createBookmark, updateBookmark, deleteBookmark};
 
 const userName = "lip"
 const BASE_URL = `https://thinkful-list-api.herokuapp.com/${userName}/bookmarks`;
@@ -17,19 +17,18 @@ function apiCall(url, method = "GET", body) {
     });
 }
 
-function getItems() {
-  return apiCall(`${BASE_URL}/items`);
+function getBookmarks() {              
+  return apiCall(`${BASE_URL}`);
 }
 
-function createItem(name) {
-  let newItem = {name};
-  return apiCall(`${BASE_URL}/items`, 'POST', JSON.stringify(newItem));
+function createBookmark(newBookmark) {
+  return apiCall(`${BASE_URL}`, 'POST', JSON.stringify(newBookmark));
 }
 
-function updateItem(id, delta) {
-  return apiCall(`${BASE_URL}/items/${id}`, 'PATCH', JSON.stringify(delta));
+function updateBookmark(id, delta) {
+  return apiCall(`${BASE_URL}/${id}`, 'PATCH', JSON.stringify(delta));
 }
 
-function deleteItem(id) {
-  return apiCall(`${BASE_URL}/items/${id}`, 'DELETE');
+function deleteBookmark(id) {
+  return apiCall(`${BASE_URL}/${id}`, 'DELETE');
 } 

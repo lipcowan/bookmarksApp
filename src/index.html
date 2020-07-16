@@ -8,24 +8,10 @@
 </head>
 
 <body>
-  <div class="container">
     <h1>Bookmarks</h1>
-    <form id="js-new-bookmark-form">
-        <fieldset>
-            <legend>New Bookmark</legend>
-            <label for="bookmark-title-entry">Title</label>
-            <input type="text" name="bookmark-title-entry" id="js-bookmark-title-entry" placeholder="e.g., Google" required>
-            <label for="bookmark-url-entry">Website URL</label>
-            <input type="url" name="bookmark-url-entry" id="js-bookmark-url-entry" placeholder="www.google.com" required>
-            <label for="bookmark-description-entry">Description</label>
-            <textarea name="bookmark-description-entry" id="js-bookmark-description-entry" cols="20" required>"Please describe the site here"</textarea>
-            <!--need to add the ratings radio button options-->
-            <button type="submit">Create New Bookmark</button>
-            <button type="reset">Reset</button>
-        </fieldset>
-    </form>
-    <div id="error-label"></div>
-    <!-- need to add a new bookmark button and the minimum rating dropdown-->
-  </div>
+  <main class="container" id="main">
+<!-- need to add a new bookmark button and the minimum rating dropdown
+        The bookmarks will be added with jQuery, using a collapsable button css class -->
+  </main>
 </body>
 </html>

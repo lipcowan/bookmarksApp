@@ -1,7 +1,97 @@
 //import modules
-
+import $ from "jquery";
+import store from "./store";
 
 // render/get bookmark list
+
+const renderBookmark = function (bookmark) {
+  console.log(bookmark);
+    if (bookmark.expanded) {
+    return `<div data-item-id="${bookmark.id}">
+    <h2>${bookmark.title}</h2>
+    <button type='button' id='collapse'>-</button>
+    <p>${bookmark.description}</p>  
+    <a href=${bookmark.url}>visit site</a>
+    </div>`;
+  }
+  else {
+      return `<div data-item-id="${bookmark.id}"><h2>${bookmark.title}</h2> 
+      <p>${bookmark.rating}</p> 
+      <button type='button' id='expand'>+</button></div>`
+  }
+};
+
+function renderNewBookmarkForm() {
+  return `<form id="js-new-bookmark-form">
+        <!-- this form could/should be generated using jQuery-->
+        <fieldset>
+            <legend>New Bookmark</legend>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="js-bookmark-title-entry" placeholder="e.g., Google" required>
+            <label for="url">Website URL</label>
+            <input type="url" name="url" id="js-bookmark-url-entry" placeholder="https://www.google.com" required>
+            <label for="desc">Description</label>
+            <textarea name="desc" id="js-bookmark-description-entry" cols="20" required>"Please describe the site here"</textarea>
+            <span class="star_ratings">
+                <input type="radio" id="rating-1" name="rating" value="1" />
+                <label for="rating-1">1</label>
+                <input type="radio" id="rating-2" name="rating" value="2" />
+                <label for="rating-2">2</label>
+                <input type="radio" id="rating-3" name="rating" value="3" />
+                <label for="rating-3">3</label>
+                <input type="radio" id="rating-4" name="rating" value="4" />
+                <label for="rating-4">4</label>
+                <input type="radio" id="rating-5" name="rating" value="5" />
+                <label for="rating-5">5</label>
+            </span>
+            <button type="submit">Create New Bookmark</button>
+            <button type="button" id="cancel-button">Cancel</button>
+        </fieldset>
+    </form>`;
+}
+
+function addBookmarkButton() {
+  return `<button id='add-button'>Add New Bookmark</button>`;
+}
+
+function minRating() {
+    let options = '';
+    for (let i = 5; i > 0; i --) {
+        let currentlySelected = i === store.filter;
+        options += `<option value="${i}" ${currentlySelected? "selected" : ''}> ${i} Stars</option>`
+    }
+    return `<label for="ratings">Minimum Rating</label>
+    <select name="ratings" id="ratings-filter">
+    ${options}
+    </select>`
+}
+
+function errorTemplate() {
+  return `<h2>Error</h2>
+    <p>${store.error}</p>`;
+}
+
+const render = function () {
+  let html = "";
+  if (store.adding) {
+    html += renderNewBookmarkForm();
+  } else {
+    html += addBookmarkButton();
+  }
+    html += minRating();
+  if (store.error) {
+    html += errorTemplate();
+  }
+  let bookmarks = store.bookmarks;
+  bookmarks = bookmarks.filter((bm) => bm.rating >= store.filter);
+  let bookmarkHtml = bookmarks.map(renderBookmark).join("");
+  html += bookmarkHtml;
+  $("#main").html(html);
+};
+
+export default {
+  render,
+};
 
 //function to expand bookmark item
 
