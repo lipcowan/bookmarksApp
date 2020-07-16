@@ -34,14 +34,6 @@ the store will contain adding, error, and filter locally - referencing how the d
 
 const STORE = {
   bookmarks: [
-    {
-      id: "7ddr",
-      title: "Title 11",
-      rating: 3,
-      url: "http://www.title11.com",
-      description: "lorem ipsum dolor",
-      expanded: true,
-    },
   ],
   adding: false,
   error: null,

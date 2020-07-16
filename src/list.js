@@ -9,9 +9,12 @@ const renderBookmark = function (bookmark) {
     if (bookmark.expanded) {
     return `<div data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
-    <button type='button' id='collapse'>-</button>
-    <p>${bookmark.description}</p>  
+    <p>${bookmark.rating}</p>
+    <p>${bookmark.desc}</p>  
     <a href=${bookmark.url}>visit site</a>
+    <button type='button' id='collapse'>-</button>
+    <button type='button' id='js-edit-bookmark'>Edit Bookmark</button>
+    <button type='button' id='js-delete-bookmark'>Delete Bookmark</button>
     </div>`;
   }
   else {

@@ -18,7 +18,6 @@ import list from './list'
 function createBookmarkHandler() { 
     $('#main').on('submit', '#js-new-bookmark-form', event => {
         event.preventDefault();
-        console.log('listening to form');
         let bookmarkForm = document.querySelector('#js-new-bookmark-form');
         let formData = new FormData(bookmarkForm);
         let bookmarkData = {};
@@ -40,6 +39,14 @@ function createBookmarkHandler() {
 function cancelBookmarkForm() {
     $('#main').on('click','#cancel-button', event => {
         store.adding = false;
+        list.render();
+    })
+}
+
+function deleteBookmarkHandler() {
+    $('#main').on('click','#js-delete-bookmark', event => {
+        let id = $(event.currentTarget).closest('div').data('item-id');
+        api.deleteBookmark(id);
         list.render();
     })
 }
@@ -84,6 +91,7 @@ function registerListeners() {
     collapseBookmark();
     expandBookmark();
     filterRatings();
+    deleteBookmarkHandler();
 }
 
 export default {
