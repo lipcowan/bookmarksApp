@@ -45,6 +45,10 @@ const STORE = {
   toggleExpansion: function(bookmarkID){
     let bookmark = this.bookmarks.find(bm => bm.id === bookmarkID);
     bookmark.expanded = !bookmark.expanded; //switches to opposite 
+  },
+  deleteBookmark: function(id) {
+    let index = this.bookmarks.findIndex(bm => bm.id === id);
+    this.bookmarks.splice(index,1);
   }
 }; // set default values
 

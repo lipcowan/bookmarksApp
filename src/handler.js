@@ -46,24 +46,32 @@ function cancelBookmarkForm() {
 function deleteBookmarkHandler() {
     $('#main').on('click','#js-delete-bookmark', event => {
         let id = $(event.currentTarget).closest('div').data('item-id');
-        api.deleteBookmark(id);
-        list.render();
+        api.deleteBookmark(id)
+        .then(() => {
+            store.deleteBookmark(id);
+            list.render(); 
+        })
+        .catch(error => {
+            store.error = error.message;
+            list.render();
+        });
     })
 }
 
+  /* 
 function editBookmarkHandler() {
     $('#main').on('click','#js-edit-bookmark', event => {
         let id = $(event.currentTarget).closest('div').data('item-id')
-        /* 
+      
         let updateForm = document.querySelector('#js-new-bookmark-form');
         let updateData = new formData(updateForm);
          ---- pull up updateFormTemplate with prefilled data from bookmark, selected by id
         console.log("I want to edit something");
-        */
+     
         list.render(); 
     })
 }
-/*
+
 function updateBookmarkHandler() {
     ----- once save is clicked on the form generated from ^ 
         let bookmarkForm = document.querySelector('#js-new-bookmark-form');
@@ -75,6 +83,7 @@ function updateBookmarkHandler() {
         rerender
 }
 */
+
 function toggleBookmarkForm() {
     $('#main').on('click','#add-button', event => {
         console.log('popup');
@@ -116,7 +125,6 @@ function registerListeners() {
     expandBookmark();
     filterRatings();
     deleteBookmarkHandler();
-    updateBookmarkHandler();
 }
 
 export default {
