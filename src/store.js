@@ -36,7 +36,7 @@ const STORE = {
   bookmarks: [],
   adding: false,
   error: null,
-  filter: 0,
+  filter: 1,
   addBookmark: function (bookmark) {
     bookmark.expanded = false;
     this.bookmarks.push(bookmark);

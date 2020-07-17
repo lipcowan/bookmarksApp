@@ -66,7 +66,7 @@ function minRating() {
       currentlySelected ? "selected" : ""
     }> ${i} Stars</option>`;
   }
-  return `<div id="css-ratings-filter">
+  return `<div>
             <label for="ratings">Minimum Rating</label>
             <select name="ratings" id="ratings-filter">
             ${options}
