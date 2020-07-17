@@ -1,0 +1,31 @@
+/* U+2606 is a white star
+	U+2605 is a black star */
+h1 {
+    letter-spacing: 3px;
+    justify-content: center;
+    text-align: center;
+}
+
+main div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 15px 5px;
+}
+
+#css-error-message {
+    background-color: #ec0d0d;
+    font-weight: 100;
+    color: #000;
+    text-shadow: #fff;
+}
+
+.css-bookmark {
+   justify-content: center;
+   align-self: center;
+   padding: 5px;
+   background-color: rgb(129, 156, 179);
+   border-radius: 2%;
+   border: 2px solid #202122;
+}

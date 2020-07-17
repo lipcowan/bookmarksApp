@@ -33,25 +33,22 @@ the store will contain adding, error, and filter locally - referencing how the d
 //let error = null;
 
 const STORE = {
-  bookmarks: [
-  ],
+  bookmarks: [],
   adding: false,
   error: null,
   filter: 0,
-  addBookmark: function(bookmark){
+  addBookmark: function (bookmark) {
     bookmark.expanded = false;
     this.bookmarks.push(bookmark);
   },
-  toggleExpansion: function(bookmarkID){
-    let bookmark = this.bookmarks.find(bm => bm.id === bookmarkID);
-    bookmark.expanded = !bookmark.expanded; //switches to opposite 
+  toggleExpansion: function (bookmarkID) {
+    let bookmark = this.bookmarks.find((bm) => bm.id === bookmarkID);
+    bookmark.expanded = !bookmark.expanded; //switches to opposite
   },
-  deleteBookmark: function(id) {
-    let index = this.bookmarks.findIndex(bm => bm.id === id);
-    this.bookmarks.splice(index,1);
-  }
-}; // set default values
-
-
+  deleteBookmark: function (id) {
+    let index = this.bookmarks.findIndex((bm) => bm.id === id);
+    this.bookmarks.splice(index, 1);
+  },
+}; 
 
 export default STORE;

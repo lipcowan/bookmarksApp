@@ -6,8 +6,8 @@ import store from "./store";
 
 const renderBookmark = function (bookmark) {
   console.log(bookmark);
-    if (bookmark.expanded) {
-    return `<div data-item-id="${bookmark.id}">
+  if (bookmark.expanded) {
+    return `<div class="css-bookmark" data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
     <p>${bookmark.rating}</p>
     <p>${bookmark.desc}</p>  
@@ -16,16 +16,15 @@ const renderBookmark = function (bookmark) {
     <button type='button' id='js-edit-bookmark'>Edit Bookmark</button>
     <button type='button' id='js-delete-bookmark'>Delete Bookmark</button>
     </div>`;
-  }
-  else {
-      return `<div data-item-id="${bookmark.id}"><h2>${bookmark.title}</h2> 
+  } else {
+    return `<div class="css-bookmark" data-item-id="${bookmark.id}"><h2>${bookmark.title}</h2> 
       <p>${bookmark.rating}</p> 
-      <button type='button' id='expand'>+</button></div>`
+      <button type='button' id='expand'>+</button></div>`;
   }
 };
 
 function renderNewBookmarkForm() {
-  return `<form id="js-new-bookmark-form">
+  return `<form class="css-form" id="js-new-bookmark-form">
         <!-- this form could/should be generated using jQuery-->
         <fieldset>
             <legend>New Bookmark</legend>
@@ -54,24 +53,32 @@ function renderNewBookmarkForm() {
 }
 
 function addBookmarkButton() {
-  return `<button id='add-button'>Add New Bookmark</button>`;
+  return `<div id="css-add-button"> 
+            <button id='add-button'>Add New Bookmark</button>
+          </div>`;
 }
 
 function minRating() {
-    let options = '';
-    for (let i = 5; i > 0; i --) {
-        let currentlySelected = i === store.filter;
-        options += `<option value="${i}" ${currentlySelected? "selected" : ''}> ${i} Stars</option>`
-    }
-    return `<label for="ratings">Minimum Rating</label>
-    <select name="ratings" id="ratings-filter">
-    ${options}
-    </select>`
+  let options = "";
+  for (let i = 5; i > 0; i--) {
+    let currentlySelected = i === store.filter;
+    options += `<option value="${i}" ${
+      currentlySelected ? "selected" : ""
+    }> ${i} Stars</option>`;
+  }
+  return `<div id="css-ratings-filter">
+            <label for="ratings">Minimum Rating</label>
+            <select name="ratings" id="ratings-filter">
+            ${options}
+            </select>
+          </div>`;
 }
 
 function errorTemplate() {
-  return `<h2>Error</h2>
-    <p>${store.error}</p>`;
+  return `<div id="css-error-message">
+            <h2>Error</h2>
+            <p>${store.error}</p>
+          </div>`;
 }
 
 const render = function () {
@@ -81,7 +88,7 @@ const render = function () {
   } else {
     html += addBookmarkButton();
   }
-    html += minRating();
+  html += minRating();
   if (store.error) {
     html += errorTemplate();
   }
