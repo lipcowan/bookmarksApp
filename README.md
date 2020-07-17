@@ -1,6 +1,6 @@
 ### USER STORIES, WIREFRAME, and TECH REQUIREMENTS
 
-https://docs.google.com/presentation/d/1576btgEwNNxzyiUVbWUMnBeHwH7JBMfmzaqFjBHMKNk/edit?usp=sharing
+- wireframing and tech requirements: https://docs.google.com/presentation/d/1576btgEwNNxzyiUVbWUMnBeHwH7JBMfmzaqFjBHMKNk/edit?usp=sharing
 
 
 ## User can add bookmarks to my bookmark list. Bookmarks contain:
