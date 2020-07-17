@@ -1,5 +1,5 @@
 ## Bookmark App:
-https://lipcowan.github.io/bookmarksApp/
+https://lipcowan.github.io/bookmarksApp/dist
 
 
 ### USER STORIES, WIREFRAME, and TECH REQUIREMENTS
